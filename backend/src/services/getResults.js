@@ -1,14 +1,15 @@
 const puppeteer = require('puppeteer');
 
-function run(pagesToScrape, urlUser) {
+function run(pagesToScrape) {
     return new Promise(async (resolve, reject) => {
         try {
             if (!pagesToScrape) {
                 pagesToScrape = 1;
             }
+            const url = 'https://loterias.caixa.gov.br/Paginas/Lotofacil.aspx';
             const browser = await puppeteer.launch({ headless: true });
             const page = await browser.newPage();
-            await page.goto(urlUser);
+            await page.goto(url);
             await page.waitForTimeout(3000);
             let currentPage = 1;
             let results = [];
@@ -54,6 +55,4 @@ function run(pagesToScrape, urlUser) {
     });
 }
 
-const url = 'https://loterias.caixa.gov.br/Paginas/Lotofacil.aspx';
-
-run(10, url).then(console.log).catch(console.error);
+module.exports = run;

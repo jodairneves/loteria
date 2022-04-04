@@ -1,10 +1,17 @@
-const puppeteer = require('puppeteer')
+const express = require('express');
+const cors = require('cors');
+const routes = require('./routes');
 
-(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.goto('https://www.mercadolivre.com.br')
-  await page.screenshot({ path: 'example.png' })
+const app = express();
 
-  await browser.close()
-})();
+/*app.use(cors({
+    origin: 'https://meu-dominio.com.br'
+}));*/
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ type: 'application/vnd.api+json' }));
+
+app.use(routes);
+
+app.listen(3001);
