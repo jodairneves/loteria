@@ -1,17 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes');
+const app = require('./app');
+const port = process.env.PORT || 3001;
 
-const app = express();
-
-/*app.use(cors({
-    origin: 'https://meu-dominio.com.br'
-}));*/
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json({ type: 'application/vnd.api+json' }));
-
-app.use(routes);
-
-app.listen(3001);
+app.listen(port, () => {
+    console.log('Server is running on port ', port);
+});
