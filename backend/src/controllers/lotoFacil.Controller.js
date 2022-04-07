@@ -12,7 +12,7 @@ module.exports = {
                 'SELECT concurso FROM lotofacil'
             );
             if (jogos.rows.length < 0) {
-                return res.status(409).json('Sistema já instalado!');
+                return res.status(409).json('O sistema já possui dados salvos no banco!');
             }
 
             await pool.query(

@@ -19,7 +19,7 @@ module.exports = {
             }
         } catch (error) {
             console.error(error)
-            return res.status(404).json('Deu ruim no Sistema!');
+            return res.status(304).json('Não foi possível inserir novo concurso no banco de dados!');
         }
     }
 }
