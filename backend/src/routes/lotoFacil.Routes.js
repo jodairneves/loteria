@@ -1,8 +1,7 @@
-const router = require('express')();
+const router = require("express")();
 
-const LotoFacil = require('../controllers/lotoFacil.Controller');
+const LotoFacil = require("../controllers/lotoFacil.Controller");
 
-router.post('/lotofacil', LotoFacil.create);
-router.put('/lotofacil', LotoFacil.update);
+router.post("/lotofacil", LotoFacil.create);
 
 module.exports = router;

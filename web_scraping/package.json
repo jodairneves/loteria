@@ -1,0 +1,15 @@
+{
+  "name": "web_scraping",
+  "version": "1.0.0",
+  "main": "getResults.js",
+  "scripts": {
+    "start": "node src/getResults.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "dotenv": "^16.0.0",
+    "pg": "^8.7.3",
+    "puppeteer": "^13.5.2"
+  }
+}
